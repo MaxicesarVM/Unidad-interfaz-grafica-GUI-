@@ -187,7 +187,7 @@ public class Ventana extends javax.swing.JFrame {
     private void txt_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_userActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_userActionPerformed
-
+//prueba
     private void btn_confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_confirmarActionPerformed
         String mail=txt_user.getText();
         String pass=txt_password.getText();
