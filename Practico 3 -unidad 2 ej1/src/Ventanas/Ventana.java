@@ -46,7 +46,6 @@ public class Ventana extends javax.swing.JFrame {
         dpnl_pantalla_principal.setBackground(new java.awt.Color(102, 102, 102));
 
         pnl_ventana_contenedor.setBackground(new java.awt.Color(0, 153, 153));
-        pnl_ventana_contenedor.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(255, 0, 51), null));
 
         txt_user.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -54,16 +53,24 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
 
+        lbl_user.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbl_user.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_user.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_user.setText("Usuario");
 
+        lbl_password.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbl_password.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_password.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_password.setText("Contraseña");
 
         lbl_iniciotext.setBackground(new java.awt.Color(255, 0, 0));
-        lbl_iniciotext.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        lbl_iniciotext.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        lbl_iniciotext.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_iniciotext.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_iniciotext.setText("Inicio de sesión");
 
         btn_confirmar.setBackground(new java.awt.Color(255, 255, 255));
-        btn_confirmar.setForeground(new java.awt.Color(0, 0, 0));
+        btn_confirmar.setForeground(new java.awt.Color(221, 221, 221));
         btn_confirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Windows.jpg"))); // NOI18N
         btn_confirmar.setText("Aceptar");
         btn_confirmar.addActionListener(new java.awt.event.ActionListener() {
@@ -73,9 +80,10 @@ public class Ventana extends javax.swing.JFrame {
         });
 
         btn_ocultar.setBackground(new java.awt.Color(255, 255, 255));
-        btn_ocultar.setForeground(new java.awt.Color(0, 0, 0));
-        btn_ocultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/mostrar_contrasena.jpg"))); // NOI18N
+        btn_ocultar.setForeground(new java.awt.Color(255, 255, 255));
+        btn_ocultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Ocultar_contraseña_redimensionado.png"))); // NOI18N
         btn_ocultar.setAutoscrolls(true);
+        btn_ocultar.setPreferredSize(new java.awt.Dimension(30, 35));
         btn_ocultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_ocultarActionPerformed(evt);
@@ -89,7 +97,9 @@ public class Ventana extends javax.swing.JFrame {
         });
 
         btn_mostrarpassword.setBackground(new java.awt.Color(255, 255, 255));
-        btn_mostrarpassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/mostrar_contrasena_2_2.jpg"))); // NOI18N
+        btn_mostrarpassword.setForeground(new java.awt.Color(255, 255, 255));
+        btn_mostrarpassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Mostrar_contraseña_redimensionado.png"))); // NOI18N
+        btn_mostrarpassword.setPreferredSize(new java.awt.Dimension(30, 35));
         btn_mostrarpassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_mostrarpasswordActionPerformed(evt);
@@ -100,50 +110,45 @@ public class Ventana extends javax.swing.JFrame {
         pnl_ventana_contenedor.setLayout(pnl_ventana_contenedorLayout);
         pnl_ventana_contenedorLayout.setHorizontalGroup(
             pnl_ventana_contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnl_ventana_contenedorLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbl_iniciotext)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_ventana_contenedorLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(pnl_ventana_contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lbl_user, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_password, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnl_ventana_contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lbl_user, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbl_password, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnl_ventana_contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnl_ventana_contenedorLayout.createSequentialGroup()
-                        .addGap(0, 6, Short.MAX_VALUE)
-                        .addComponent(btn_confirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txt_password)
-                    .addComponent(txt_user))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnl_ventana_contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btn_mostrarpassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_ocultar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(36, 36, 36))
+                        .addComponent(txt_user, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pnl_ventana_contenedorLayout.createSequentialGroup()
+                        .addComponent(txt_password, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btn_ocultar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_mostrarpassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 77, Short.MAX_VALUE))))
+            .addComponent(lbl_iniciotext, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_ventana_contenedorLayout.createSequentialGroup()
+                .addComponent(btn_confirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(113, 113, 113))
         );
         pnl_ventana_contenedorLayout.setVerticalGroup(
             pnl_ventana_contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_ventana_contenedorLayout.createSequentialGroup()
                 .addComponent(lbl_iniciotext)
-                .addGap(19, 19, 19)
+                .addGap(31, 31, 31)
                 .addGroup(pnl_ventana_contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_user, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_user, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbl_user, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_user, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
                 .addGroup(pnl_ventana_contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnl_ventana_contenedorLayout.createSequentialGroup()
-                        .addGap(47, 47, 47)
+                    .addComponent(lbl_password, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnl_ventana_contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(txt_password, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(btn_ocultar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_ventana_contenedorLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnl_ventana_contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_password, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_password, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_mostrarpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btn_confirmar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                    .addComponent(btn_mostrarpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
+                .addComponent(btn_confirmar)
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         dpnl_pantalla_principal.setLayer(pnl_ventana_contenedor, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -155,29 +160,25 @@ public class Ventana extends javax.swing.JFrame {
             .addGroup(dpnl_pantalla_principalLayout.createSequentialGroup()
                 .addGap(90, 90, 90)
                 .addComponent(pnl_ventana_contenedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
         dpnl_pantalla_principalLayout.setVerticalGroup(
             dpnl_pantalla_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dpnl_pantalla_principalLayout.createSequentialGroup()
                 .addGap(78, 78, 78)
                 .addComponent(pnl_ventana_contenedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(dpnl_pantalla_principal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(dpnl_pantalla_principal, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(dpnl_pantalla_principal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(dpnl_pantalla_principal, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
