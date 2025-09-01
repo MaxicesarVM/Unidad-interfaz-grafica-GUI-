@@ -3,7 +3,7 @@ package Modelo;
 
 
 public class Materia {
-      private int idMateria;
+    private int idMateria;
     private String nombreMateria;
     private int anio;
 
