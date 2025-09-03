@@ -6,7 +6,8 @@ public class Materia {
     private int idMateria;
     private String nombreMateria;
     private int año;
-
+    
+//constructor
     public Materia(int idMateria, String nombreMateria, int anio) {
         this.idMateria = idMateria;
         this.nombreMateria = nombreMateria;

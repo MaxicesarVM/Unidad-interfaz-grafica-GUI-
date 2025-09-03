@@ -152,6 +152,7 @@ public class AltaAlumnos extends javax.swing.JInternalFrame {
    
         
         pnl_ventanaAlumnos.setVisible(false);
+        pnl_ventanaAlumnos.setVisible(true);
         // ACA HAY QUE SEGUIR
         
         
