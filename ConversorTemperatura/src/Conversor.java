@@ -39,6 +39,10 @@ public class Conversor extends javax.swing.JFrame {
         btn_celsius = new javax.swing.JRadioButton();
         lbl_tituloPrincipal = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -106,35 +110,53 @@ public class Conversor extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/481431.png"))); // NOI18N
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/kelvin.png"))); // NOI18N
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/farenheit.png"))); // NOI18N
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/radio.png"))); // NOI18N
+
         javax.swing.GroupLayout pnl_ventanaLayout = new javax.swing.GroupLayout(pnl_ventana);
         pnl_ventana.setLayout(pnl_ventanaLayout);
         pnl_ventanaLayout.setHorizontalGroup(
             pnl_ventanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_ventanaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pnl_ventanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_celsius)
-                    .addComponent(btn_radianes))
-                .addGap(40, 40, 40))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_ventanaLayout.createSequentialGroup()
-                .addGap(0, 2, Short.MAX_VALUE)
-                .addComponent(lbl_tituloPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
             .addGroup(pnl_ventanaLayout.createSequentialGroup()
                 .addGroup(pnl_ventanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnl_ventanaLayout.createSequentialGroup()
                         .addGap(103, 103, 103)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnl_ventanaLayout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addGroup(pnl_ventanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_kelvin)
-                            .addComponent(btn_fah)))
-                    .addGroup(pnl_ventanaLayout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addGroup(pnl_ventanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbl_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_registro, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txt_registro, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnl_ventanaLayout.createSequentialGroup()
+                        .addGroup(pnl_ventanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnl_ventanaLayout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(pnl_ventanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btn_celsius)
+                                    .addComponent(btn_radianes)))
+                            .addGroup(pnl_ventanaLayout.createSequentialGroup()
+                                .addGap(31, 31, 31)
+                                .addGroup(pnl_ventanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(pnl_ventanaLayout.createSequentialGroup()
+                                        .addComponent(btn_kelvin)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel1))
+                                    .addGroup(pnl_ventanaLayout.createSequentialGroup()
+                                        .addComponent(btn_fah)
+                                        .addGap(11, 11, 11)
+                                        .addComponent(jLabel3)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(pnl_ventanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel4))))
+                .addGap(42, 42, 42))
+            .addGroup(pnl_ventanaLayout.createSequentialGroup()
+                .addComponent(lbl_tituloPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnl_ventanaLayout.setVerticalGroup(
@@ -144,18 +166,25 @@ public class Conversor extends javax.swing.JFrame {
                 .addComponent(lbl_tituloPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbl_titulo)
-                .addGap(18, 18, 18)
-                .addComponent(txt_registro, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addGroup(pnl_ventanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_kelvin)
-                    .addComponent(btn_celsius))
-                .addGap(30, 30, 30)
-                .addGroup(pnl_ventanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_fah)
-                    .addComponent(btn_radianes))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                .addGroup(pnl_ventanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnl_ventanaLayout.createSequentialGroup()
+                        .addComponent(txt_registro, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addGroup(pnl_ventanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btn_kelvin)
+                            .addComponent(btn_celsius)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1))
+                        .addGap(25, 25, 25)
+                        .addGroup(pnl_ventanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_ventanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(btn_fah)
+                                .addComponent(jLabel3))
+                            .addComponent(btn_radianes)))
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -165,11 +194,11 @@ public class Conversor extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_fondo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 731, Short.MAX_VALUE)
+            .addComponent(pnl_fondo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 728, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_fondo, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE)
+            .addComponent(pnl_fondo, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE)
         );
 
         pack();
@@ -257,6 +286,10 @@ public class Conversor extends javax.swing.JFrame {
     private javax.swing.JRadioButton btn_radianes;
     private javax.swing.ButtonGroup btng_botones;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lbl_titulo;
     private javax.swing.JLabel lbl_tituloPrincipal;
     private javax.swing.JPanel pnl_fondo;

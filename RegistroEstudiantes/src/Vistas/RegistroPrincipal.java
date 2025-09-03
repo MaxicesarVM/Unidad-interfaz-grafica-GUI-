@@ -1,5 +1,9 @@
 package Vistas;
 
+import Modelo.Alumno;
+import Modelo.Materia;
+import java.util.HashSet;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -16,6 +20,7 @@ public class RegistroPrincipal extends javax.swing.JFrame {
      */
     public RegistroPrincipal() {
         initComponents();
+        
     }
 
     /**
@@ -27,21 +32,97 @@ public class RegistroPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pnld_escritorio = new javax.swing.JDesktopPane();
+        menu_alumnos = new javax.swing.JMenuBar();
+        jm_alumnos = new javax.swing.JMenu();
+        menui_agregarAlumnos = new javax.swing.JMenuItem();
+        jm_materia = new javax.swing.JMenu();
+        jm_registro = new javax.swing.JMenu();
+        jm_salir = new javax.swing.JMenu();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        javax.swing.GroupLayout pnld_escritorioLayout = new javax.swing.GroupLayout(pnld_escritorio);
+        pnld_escritorio.setLayout(pnld_escritorioLayout);
+        pnld_escritorioLayout.setHorizontalGroup(
+            pnld_escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 614, Short.MAX_VALUE)
+        );
+        pnld_escritorioLayout.setVerticalGroup(
+            pnld_escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 342, Short.MAX_VALUE)
+        );
+
+        jm_alumnos.setText("Alumno");
+        jm_alumnos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jm_alumnosActionPerformed(evt);
+            }
+        });
+
+        menui_agregarAlumnos.setText("Agregar Alumno");
+        menui_agregarAlumnos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menui_agregarAlumnosActionPerformed(evt);
+            }
+        });
+        jm_alumnos.add(menui_agregarAlumnos);
+
+        menu_alumnos.add(jm_alumnos);
+
+        jm_materia.setText("Materia");
+        menu_alumnos.add(jm_materia);
+
+        jm_registro.setText("Registro");
+        menu_alumnos.add(jm_registro);
+
+        jm_salir.setText("Salir");
+        menu_alumnos.add(jm_salir);
+
+        setJMenuBar(menu_alumnos);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 614, Short.MAX_VALUE)
+            .addComponent(pnld_escritorio)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 365, Short.MAX_VALUE)
+            .addComponent(pnld_escritorio, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    public static HashSet<Alumno> alumnosInscripcion = new HashSet(); 
+    
+    public static HashSet<Materia> materiasInscripcion = new HashSet(); 
+    
+    
+    
+    
+    
+    private void jm_alumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jm_alumnosActionPerformed
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jm_alumnosActionPerformed
+
+    private void menui_agregarAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menui_agregarAlumnosActionPerformed
+        
+        pnld_escritorio.removeAll();
+        pnld_escritorio.repaint();
+        
+        AltaAlumnos ventanaAlumnos = new AltaAlumnos();
+        pnld_escritorio.add(ventanaAlumnos);
+        ventanaAlumnos.setVisible(true);
+        pnld_escritorio.moveToFront(ventanaAlumnos);
+        
+    }//GEN-LAST:event_menui_agregarAlumnosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +160,12 @@ public class RegistroPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu jm_alumnos;
+    private javax.swing.JMenu jm_materia;
+    private javax.swing.JMenu jm_registro;
+    private javax.swing.JMenu jm_salir;
+    private javax.swing.JMenuBar menu_alumnos;
+    private javax.swing.JMenuItem menui_agregarAlumnos;
+    private javax.swing.JDesktopPane pnld_escritorio;
     // End of variables declaration//GEN-END:variables
 }
