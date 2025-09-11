@@ -76,6 +76,11 @@ public class BuscarCliente extends javax.swing.JInternalFrame {
         lbl_domicilioClienteBusqueda.setText("Domicilio:");
 
         btn_salirBusquedaClientes.setText("Salir");
+        btn_salirBusquedaClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_salirBusquedaClientesActionPerformed(evt);
+            }
+        });
 
         jlist_telefonosAgregados.setName(""); // NOI18N
         jlist_telefonosAgregados.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
@@ -183,10 +188,19 @@ public class BuscarCliente extends javax.swing.JInternalFrame {
 
     private void jlist_telefonosAgregadosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jlist_telefonosAgregadosValueChanged
 
-        //txt_telefonoClienteBusqueda.setText(frmMenuPrincipal.frmdirectorio.buscarContacto(Long.valueOf(jlist_telefonosAgregados.getSelectedValue())));
+        txt_telefonoClienteBusqueda.setText(String.valueOf(jlist_telefonosAgregados.getSelectedValue()));
+        txt_dniClientesBusqueda.setText(String.valueOf(frmMenuPrincipal.frmdirectorio.buscarContacto(jlist_telefonosAgregados.getSelectedValue()).getDni()));
+        txt_apellidoClientesBusqueda.setText(String.valueOf(frmMenuPrincipal.frmdirectorio.buscarContacto(jlist_telefonosAgregados.getSelectedValue()).getApellido()));
+        txt_nombreClientesBusqueda.setText(String.valueOf(frmMenuPrincipal.frmdirectorio.buscarContacto(jlist_telefonosAgregados.getSelectedValue()).getNombre()));
+        txt_ciudadClientesBusqueda.setText(String.valueOf(frmMenuPrincipal.frmdirectorio.buscarContacto(jlist_telefonosAgregados.getSelectedValue()).getCiudad()));
+        txt_domicilioClientesBusqueda.setText(String.valueOf(frmMenuPrincipal.frmdirectorio.buscarContacto(jlist_telefonosAgregados.getSelectedValue()).getDireccion()));
         
         
     }//GEN-LAST:event_jlist_telefonosAgregadosValueChanged
+
+    private void btn_salirBusquedaClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirBusquedaClientesActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btn_salirBusquedaClientesActionPerformed
 
     public void llenarListaTelefonos() {
 

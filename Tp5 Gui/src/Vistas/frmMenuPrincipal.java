@@ -49,11 +49,11 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
         dpnl_menuPrincipal.setLayout(dpnl_menuPrincipalLayout);
         dpnl_menuPrincipalLayout.setHorizontalGroup(
             dpnl_menuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 841, Short.MAX_VALUE)
+            .addGap(0, 999, Short.MAX_VALUE)
         );
         dpnl_menuPrincipalLayout.setVerticalGroup(
             dpnl_menuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 510, Short.MAX_VALUE)
+            .addGap(0, 597, Short.MAX_VALUE)
         );
 
         jMenu1.setText("Clientes");
@@ -67,9 +67,19 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
         jMenu1.add(jMenuItem1);
 
         jMenuItem2.setText("Buscar Cliente");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem2);
 
         jMenuItem3.setText("Borrar Cliente");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem3);
 
         jMenuBar1.add(jMenu1);
@@ -90,8 +100,18 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Ciudades");
+        jMenu3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu3ActionPerformed(evt);
+            }
+        });
 
         jMenuItem6.setText("Agregar Ciudad");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem6);
 
         jMenuBar1.add(jMenu3);
@@ -105,14 +125,19 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dpnl_menuPrincipal)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(dpnl_menuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dpnl_menuPrincipal, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(dpnl_menuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
@@ -127,7 +152,8 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
         menu_agregarCliente ventanaMenu = new menu_agregarCliente();
         
         ventanaMenu.setVisible(true);
-        ventanaMenu.moveToFront();
+        dpnl_menuPrincipal.add(ventanaMenu);
+        dpnl_menuPrincipal.moveToFront(ventanaMenu);
         
         
         
@@ -136,6 +162,56 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        
+        dpnl_menuPrincipal.removeAll();
+        dpnl_menuPrincipal.repaint();
+        
+        BuscarCliente ventanaCliente = new BuscarCliente();
+        
+        ventanaCliente.setVisible(true);
+        dpnl_menuPrincipal.add(ventanaCliente);
+        dpnl_menuPrincipal.moveToFront(ventanaCliente);
+        
+        
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        
+        dpnl_menuPrincipal.removeAll();
+        dpnl_menuPrincipal.repaint();
+        
+        menu_borrarCliente ventanaBorrar = new menu_borrarCliente();
+        
+        ventanaBorrar.setVisible(true);
+        dpnl_menuPrincipal.add(ventanaBorrar);
+        dpnl_menuPrincipal.moveToFront(ventanaBorrar);
+        
+        
+        
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
+        
+        
+        
+        
+    }//GEN-LAST:event_jMenu3ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        
+        
+        dpnl_menuPrincipal.removeAll();
+        dpnl_menuPrincipal.repaint();
+        
+        menu_agregarCiudad ventanaAgregarCiudad = new menu_agregarCiudad();
+        
+        ventanaAgregarCiudad.setVisible(true);
+        dpnl_menuPrincipal.add(ventanaAgregarCiudad);
+        dpnl_menuPrincipal.moveToFront(ventanaAgregarCiudad);
+        
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     public static DirectorioTelefonico frmdirectorio = new DirectorioTelefonico();
     

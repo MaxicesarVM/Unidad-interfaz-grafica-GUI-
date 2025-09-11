@@ -17,6 +17,9 @@ public class Contacto {
         this.ciudad = ciudad;
         this.direccion = direccion;
     }
+
+    public Contacto() {
+    }
     
     
     

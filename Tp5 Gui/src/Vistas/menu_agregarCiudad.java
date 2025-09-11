@@ -4,6 +4,8 @@
  */
 package Vistas;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Rickert
@@ -50,6 +52,11 @@ public class menu_agregarCiudad extends javax.swing.JInternalFrame {
         });
 
         btn_salirCiudad.setText("Salir");
+        btn_salirCiudad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_salirCiudadActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jp_panelAgregarCiudadLayout = new javax.swing.GroupLayout(jp_panelAgregarCiudad);
         jp_panelAgregarCiudad.setLayout(jp_panelAgregarCiudadLayout);
@@ -116,11 +123,18 @@ public class menu_agregarCiudad extends javax.swing.JInternalFrame {
         
         
         frmMenuPrincipal.ciudadesData.add(valorDeCiudad);
+        JOptionPane.showMessageDialog(this, "Se agrego la ciudad correctamente");
+        
+        txt_valorAgregarCiudad.setText("");
         
         
         
         
     }//GEN-LAST:event_btn_guardarCiudadActionPerformed
+
+    private void btn_salirCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirCiudadActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btn_salirCiudadActionPerformed
 
     
     public void llenarComboCiudad(){

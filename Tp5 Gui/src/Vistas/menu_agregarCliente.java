@@ -88,6 +88,11 @@ public class menu_agregarCliente extends javax.swing.JInternalFrame {
         });
 
         btn_salirCliente.setText("Salir");
+        btn_salirCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_salirClienteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jp_panelClienteLayout = new javax.swing.GroupLayout(jp_panelCliente);
         jp_panelCliente.setLayout(jp_panelClienteLayout);
@@ -211,6 +216,13 @@ public class menu_agregarCliente extends javax.swing.JInternalFrame {
         
         
     }//GEN-LAST:event_btn_guardarClienteActionPerformed
+
+    private void btn_salirClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirClienteActionPerformed
+        
+       this.dispose();
+        
+        
+    }//GEN-LAST:event_btn_salirClienteActionPerformed
 
     
     
