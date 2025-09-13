@@ -4,9 +4,13 @@
  */
 package Vistas;
 
+import Modelo.Producto;
+import Modelo.Supermercado;
+import java.util.TreeSet;
+
 
 public class VistaMenuPrincipal extends javax.swing.JFrame {
-
+    public static Supermercado supermercado = new Supermercado();
     /**
      * Creates new form VistaMenuPrincipal
      */
@@ -23,7 +27,7 @@ public class VistaMenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDesktopPane1 = new javax.swing.JDesktopPane();
+        escritorio = new javax.swing.JDesktopPane();
         menuBar_principal = new javax.swing.JMenuBar();
         menu_administracion = new javax.swing.JMenu();
         mit_producto = new javax.swing.JMenuItem();
@@ -34,7 +38,16 @@ public class VistaMenuPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jDesktopPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
+        escritorio.setLayout(escritorioLayout);
+        escritorioLayout.setHorizontalGroup(
+            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 827, Short.MAX_VALUE)
+        );
+        escritorioLayout.setVerticalGroup(
+            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 716, Short.MAX_VALUE)
+        );
 
         menu_administracion.setText("Administracion");
 
@@ -67,11 +80,11 @@ public class VistaMenuPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 827, Short.MAX_VALUE)
+            .addComponent(escritorio)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 716, Short.MAX_VALUE)
+            .addComponent(escritorio)
         );
 
         pack();
@@ -79,12 +92,12 @@ public class VistaMenuPrincipal extends javax.swing.JFrame {
 
     private void mit_productoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mit_productoActionPerformed
         // TODO add your handling code here:
-        jDesktopPane1.removeAll();
-        menuBar_principal.repaint();;
+        escritorio.removeAll();
+        escritorio.repaint();
         VistaGestionProductos  vistaGestionProductos = new VistaGestionProductos();
-        menuBar_principal.add(vistaGestionProductos);
-        menuBar_principal.setVisible(true);
-        menuBar_principal.
+        escritorio.add(vistaGestionProductos);
+        vistaGestionProductos.setVisible(true);
+        escritorio.moveToFront(vistaGestionProductos);
 
     }//GEN-LAST:event_mit_productoActionPerformed
 
@@ -124,7 +137,7 @@ public class VistaMenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenuBar menuBar_principal;
     private javax.swing.JMenu menu_administracion;
     private javax.swing.JMenu menu_consultas;

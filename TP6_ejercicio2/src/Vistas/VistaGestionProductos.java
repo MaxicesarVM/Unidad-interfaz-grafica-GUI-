@@ -4,10 +4,8 @@
  */
 package Vistas;
 
-/**
- *
- * @author jorge
- */
+import Modelo.Supermercado;
+
 public class VistaGestionProductos extends javax.swing.JInternalFrame {
 
     /**
@@ -127,9 +125,9 @@ public class VistaGestionProductos extends javax.swing.JInternalFrame {
                         .addComponent(lbl_descripcion_gestion))
                     .addComponent(txt_descripcion_gestion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_precio_gestion)
-                    .addComponent(txt_precio_gestion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txt_precio_gestion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_precio_gestion))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_rubro_gestion)
@@ -221,6 +219,7 @@ public class VistaGestionProductos extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 
+     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_actualizar_gestion;
     private javax.swing.JButton btn_buscar_gestino;
