@@ -87,6 +87,11 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
         jMenu2.setText("Directorio");
 
         jMenuItem4.setText("Buscar Clientes Por Ciudad");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem4);
 
         jMenuItem5.setText("Buscar Telefono por Apellido");
@@ -141,7 +146,14 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        // TODO add your handling code here:
+          dpnl_menuPrincipal.removeAll();
+          dpnl_menuPrincipal.repaint();
+          
+          BuscarTelefonoApellido buscartele = new BuscarTelefonoApellido();
+          buscartele.setVisible(true);
+          dpnl_menuPrincipal.add(buscartele);
+          dpnl_menuPrincipal.moveToFront(buscartele);
+                 
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -212,6 +224,19 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
         dpnl_menuPrincipal.moveToFront(ventanaAgregarCiudad);
         
     }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+          dpnl_menuPrincipal.removeAll();
+          dpnl_menuPrincipal.repaint();
+          
+          menuBuscarClienteCiudad ventanaDirectorioCiudad = new menuBuscarClienteCiudad();
+          ventanaDirectorioCiudad.setVisible(true);
+          dpnl_menuPrincipal.add(ventanaDirectorioCiudad);
+          dpnl_menuPrincipal.moveToFront(ventanaDirectorioCiudad);
+          
+          
+          
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     public static DirectorioTelefonico frmdirectorio = new DirectorioTelefonico();
     
