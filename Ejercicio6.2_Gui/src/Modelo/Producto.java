@@ -1,6 +1,6 @@
 package Modelo;
 
-public class Producto {
+public class Producto  implements Comparable<Producto>{
 
     private int codigo;
     private String descripcion;
@@ -8,9 +8,20 @@ public class Producto {
     private String rubro;
     private int stock;
 
-    public Producto() {
+    public Producto(){
+    
     }
     
+
+    
+
+    public Producto(int codigo, String descripcion, double precio, String rubro, int stock) {
+        this.codigo = codigo;
+        this.descripcion = descripcion;
+        this.precio = precio;
+        this.rubro = rubro;
+        this.stock = stock;
+    }
 
     public int getCodigo() {
         return codigo;
@@ -52,4 +63,19 @@ public class Producto {
         this.stock = stock;
     }
 
-}
+    @Override
+    public int compareTo(Producto o) {
+        
+        if(this.codigo > o.codigo){
+            return 1;
+        } else if (this.codigo < o.codigo){
+            return -1;           
+        } else{
+            return 0;
+        }
+        
+        
+    }
+
+    }
+
