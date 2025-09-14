@@ -33,6 +33,7 @@ public class vistaGestionProductos extends javax.swing.JInternalFrame {
     
     public void cargarCategorias(){
         
+        vistaMenuPrincipal.categoriasProductos.clear();
         vistaMenuPrincipal.categoriasProductos.add("Comestible");
         vistaMenuPrincipal.categoriasProductos.add("Limpieza");
         vistaMenuPrincipal.categoriasProductos.add("Perfumeria");

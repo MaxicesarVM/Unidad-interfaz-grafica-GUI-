@@ -4,19 +4,52 @@
  */
 package Vistas;
 
+import Modelo.Producto;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Rickert
  */
 public class listaPrecio extends javax.swing.JInternalFrame {
 
+    private DefaultTableModel tablaPrecios = new DefaultTableModel(){
+        
+        public boolean isCellEditable(int f, int c){
+            return false;
+        }
+        
+    };;
+    
     /**
      * Creates new form listaPrecio
      */
     public listaPrecio() {
         initComponents();
+        cargarPreciosTabla();
+        
+        
     }
 
+    public void cargarPreciosTabla(){
+        
+        tablaPrecios.addColumn("Codigo");
+        tablaPrecios.addColumn("Descripcion");
+        tablaPrecios.addColumn("Precio");
+        tablaPrecios.addColumn("Categoria");
+        tablaPrecios.addColumn("Stock");
+    
+        tbl_tablaPrecio.setModel(tablaPrecios);
+        
+        
+        
+    }
+    
+    
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,6 +68,8 @@ public class listaPrecio extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_tablaPrecio = new javax.swing.JTable();
 
+        setClosable(true);
+
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
         lbl_tituloPrecio.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -46,6 +81,12 @@ public class listaPrecio extends javax.swing.JInternalFrame {
 
         lbl_entreyPrecio.setForeground(new java.awt.Color(0, 0, 0));
         lbl_entreyPrecio.setText("y");
+
+        txt_entrePrecio2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_entrePrecio2KeyReleased(evt);
+            }
+        });
 
         tbl_tablaPrecio.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -118,6 +159,42 @@ public class listaPrecio extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txt_entrePrecio2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_entrePrecio2KeyReleased
+        
+        tablaPrecios.setRowCount(0);
+        
+        if(txt_entrePrecio1.getText().isEmpty() || txt_entrePrecio2.getText().isEmpty()){
+            System.out.println("No se activa el filtrador aun");
+        } else{
+            
+            try{
+                
+                for(Producto p: vistaMenuPrincipal.listaProductos.getListaProductos()){
+            
+                if(p.getPrecio() >= Double.parseDouble(txt_entrePrecio1.getText()) && p.getPrecio() <= Double.parseDouble(txt_entrePrecio2.getText())){
+                
+                        tablaPrecios.addRow(new Object[]{
+                            p.getCodigo(),
+                            p.getDescripcion(),
+                            p.getPrecio(),
+                            p.getRubro(),
+                            p.getStock()
+                        });
+                
+                
+                    }
+                }
+                
+                
+            } catch(NumberFormatException e){
+                JOptionPane.showMessageDialog(this, "Solo puede ingresar numeros");
+            }
+            
+        }
+        
+        
+    }//GEN-LAST:event_txt_entrePrecio2KeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

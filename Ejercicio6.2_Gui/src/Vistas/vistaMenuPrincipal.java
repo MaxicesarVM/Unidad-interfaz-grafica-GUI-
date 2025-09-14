@@ -72,6 +72,11 @@ public class vistaMenuPrincipal extends javax.swing.JFrame {
         jMenu2.setText("Consultas");
 
         jMenuItem2.setText("Consulta por Nombre");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem2);
 
         jMenuItem3.setText("Consulta por Precio");
@@ -83,6 +88,11 @@ public class vistaMenuPrincipal extends javax.swing.JFrame {
         jMenu2.add(jMenuItem3);
 
         jMenuItem4.setText("Consulta por Rubro");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem4);
 
         jMenuBar1.add(jMenu2);
@@ -105,7 +115,19 @@ public class vistaMenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // TODO add your handling code here:
+        
+        //Precio
+        
+        jpl_escritorioPrincipal.removeAll();
+        jpl_escritorioPrincipal.repaint();
+        listaPrecio vistaPrecios = new listaPrecio();
+        jpl_escritorioPrincipal.add(vistaPrecios);
+        vistaPrecios.setVisible(true);
+        jpl_escritorioPrincipal.moveToFront(vistaPrecios);
+        
+        
+        
+        
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -121,6 +143,36 @@ public class vistaMenuPrincipal extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        
+        //Nombre
+        jpl_escritorioPrincipal.removeAll();
+        jpl_escritorioPrincipal.repaint();
+        listaNombre vistaNombres = new listaNombre();
+        jpl_escritorioPrincipal.add(vistaNombres);
+        vistaNombres.setVisible(true);
+        jpl_escritorioPrincipal.moveToFront(vistaNombres);
+        
+        
+        
+        
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        
+        //Rubro
+        
+        jpl_escritorioPrincipal.removeAll();
+        jpl_escritorioPrincipal.repaint();
+        listaRubro vistaRubro = new listaRubro();
+        jpl_escritorioPrincipal.add(vistaRubro);
+        vistaRubro.setVisible(true);
+        jpl_escritorioPrincipal.moveToFront(vistaRubro);
+        
+        
+        
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments

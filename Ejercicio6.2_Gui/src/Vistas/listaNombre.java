@@ -4,19 +4,49 @@
  */
 package Vistas;
 
+import Modelo.Producto;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Rickert
  */
 public class listaNombre extends javax.swing.JInternalFrame {
 
+    
+    private DefaultTableModel tablaNombres = new DefaultTableModel(){
+        
+        public boolean isCellEditable(int f, int c){
+            return false;
+        }
+        
+    };
+    
     /**
      * Creates new form listaNombre
      */
     public listaNombre() {
         initComponents();
+        cargarNombresTabla();
+        
     }
 
+    public void cargarNombresTabla(){
+        
+        tablaNombres.addColumn("Codigo");
+        tablaNombres.addColumn("Descripcion");
+        tablaNombres.addColumn("Precio");
+        tablaNombres.addColumn("Categoria");
+        tablaNombres.addColumn("Stock");
+    
+        tbl_tablaNombre.setModel(tablaNombres);
+        
+        
+        
+    }
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,11 +63,19 @@ public class listaNombre extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_tablaNombre = new javax.swing.JTable();
 
+        setClosable(true);
+
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setForeground(new java.awt.Color(0, 0, 0));
 
         lbl_tituloNombre.setForeground(new java.awt.Color(0, 0, 0));
         lbl_tituloNombre.setText("Listado Por Nombre");
+
+        txt_descripcionNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_descripcionNombreKeyReleased(evt);
+            }
+        });
 
         lbl_descripcionNombre.setForeground(new java.awt.Color(0, 0, 0));
         lbl_descripcionNombre.setText("Ingrese Descripcion:");
@@ -106,7 +144,31 @@ public class listaNombre extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txt_descripcionNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_descripcionNombreKeyReleased
+        
+        tablaNombres.setRowCount(0);
+        
+        for(Producto p: vistaMenuPrincipal.listaProductos.getListaProductos()){
+            
+            if(p.getDescripcion().startsWith(txt_descripcionNombre.getText())){
+                tablaNombres.addRow(new Object[]{
+                    p.getCodigo(),
+                    p.getDescripcion(),
+                    p.getPrecio(),
+                    p.getRubro(),
+                    p.getStock()
+                });
+            }
+            
+        }
+        
+        
+        
+    }//GEN-LAST:event_txt_descripcionNombreKeyReleased
 
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

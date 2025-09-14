@@ -4,19 +4,69 @@
  */
 package Vistas;
 
+import Modelo.Producto;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Rickert
  */
 public class listaRubro extends javax.swing.JInternalFrame {
 
+    private DefaultTableModel tablaRubro = new DefaultTableModel(){
+        
+        public boolean isCellEditable(int f, int c){
+            return false;
+        }
+        
+    };;
+    
+    
     /**
      * Creates new form listaRubro
      */
     public listaRubro() {
         initComponents();
+        cargarRubrosTabla();
+        cargarRubrosCategorias();
     }
 
+    public void cargarRubrosCategorias(){
+        
+        
+        vistaMenuPrincipal.categoriasProductos.clear();
+        vistaMenuPrincipal.categoriasProductos.add("Comestible");
+        vistaMenuPrincipal.categoriasProductos.add("Limpieza");
+        vistaMenuPrincipal.categoriasProductos.add("Perfumeria");
+        
+        
+        jcb_rubroLista.removeAllItems();
+        for(String categoria: vistaMenuPrincipal.categoriasProductos){
+            
+            jcb_rubroLista.addItem(categoria);
+            
+            
+        }
+        
+        
+        
+    }
+    
+    
+    public void cargarRubrosTabla(){
+        
+        tablaRubro.addColumn("Codigo");
+        tablaRubro.addColumn("Descripcion");
+        tablaRubro.addColumn("Precio");
+        tablaRubro.addColumn("Categoria");
+        tablaRubro.addColumn("Stock");
+    
+        tbl_tablaRubro.setModel(tablaRubro);
+        
+        
+        
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,6 +83,8 @@ public class listaRubro extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_tablaRubro = new javax.swing.JTable();
 
+        setClosable(true);
+
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
         lbl_tituloRubro.setForeground(new java.awt.Color(0, 0, 0));
@@ -41,7 +93,11 @@ public class listaRubro extends javax.swing.JInternalFrame {
         lbl_infoRubro.setForeground(new java.awt.Color(0, 0, 0));
         lbl_infoRubro.setText("Rubro");
 
-        jcb_rubroLista.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcb_rubroLista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcb_rubroListaActionPerformed(evt);
+            }
+        });
 
         tbl_tablaRubro.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -73,7 +129,7 @@ public class listaRubro extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(63, 63, 63)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -86,7 +142,7 @@ public class listaRubro extends javax.swing.JInternalFrame {
                     .addComponent(jcb_rubroLista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -96,18 +152,43 @@ public class listaRubro extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(216, 216, 216)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(238, Short.MAX_VALUE))
+                .addContainerGap(184, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(54, 54, 54)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(159, Short.MAX_VALUE))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jcb_rubroListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcb_rubroListaActionPerformed
+        
+        tablaRubro.setRowCount(0);
+        
+        String rubroFiltro = (String) jcb_rubroLista.getSelectedItem();
+        
+        for(Producto p: vistaMenuPrincipal.listaProductos.getListaProductos()){
+            
+            if(p.getRubro().equalsIgnoreCase(rubroFiltro)){
+                
+                tablaRubro.addRow(new Object[]{
+                            p.getCodigo(),
+                            p.getDescripcion(),
+                            p.getPrecio(),
+                            p.getRubro(),
+                            p.getStock()
+                });
+            }
+          
+            
+            
+        }
+       
+    }//GEN-LAST:event_jcb_rubroListaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
