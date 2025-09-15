@@ -16,9 +16,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class vistaGestionProductos extends javax.swing.JInternalFrame {
 
-    
     private DefaultTableModel modeloTabla = new DefaultTableModel();
-    
+
     /**
      * Creates new form vistaGestionProductos
      */
@@ -29,54 +28,50 @@ public class vistaGestionProductos extends javax.swing.JInternalFrame {
         cargarFilas();
     }
 
-    
-    
-    public void cargarCategorias(){
-        
+    public void cargarCategorias() {
+
         vistaMenuPrincipal.categoriasProductos.clear();
         vistaMenuPrincipal.categoriasProductos.add("Comestible");
         vistaMenuPrincipal.categoriasProductos.add("Limpieza");
         vistaMenuPrincipal.categoriasProductos.add("Perfumeria");
-        
-        for(String categoria: vistaMenuPrincipal.categoriasProductos){
-            
+
+        for (String categoria : vistaMenuPrincipal.categoriasProductos) {
+
             combo_categorias.addItem(categoria);
             combo_rubro.addItem(categoria);
-            
+
         }
-        
-        
-        
+
     }
-    
-    public void cargarColumnas(){
-        
+
+    public void cargarColumnas() {
+
         modeloTabla.addColumn("Codigo");
         modeloTabla.addColumn("Descripcion");
         modeloTabla.addColumn("Precio");
         modeloTabla.addColumn("Categoria");
         modeloTabla.addColumn("Stock");
-    
+
         tbl_tabla.setModel(modeloTabla);
-        
+
     }
-    
-    public void cargarFilas(){
-        
-        
-        
-        
-        
-        
+
+    public void cargarFilas() {
+
+        for (Producto p : vistaMenuPrincipal.listaProductos.getListaProductos()) {
+
+            modeloTabla.addRow(new Object[]{
+                p.getCodigo(),
+                p.getDescripcion(),
+                p.getPrecio(),
+                p.getRubro(),
+                p.getStock()
+            });
+
+        }
+
     }
-    
-    
-    
-    
-    
-    
-    
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -200,7 +195,7 @@ public class vistaGestionProductos extends javax.swing.JInternalFrame {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        btn_lupa.setText("Aca va la lupa");
+        btn_lupa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/busqueda-de-lupa copia.png"))); // NOI18N
 
         btn_cerrar.setText("Cerrar");
         btn_cerrar.addActionListener(new java.awt.event.ActionListener() {
@@ -323,46 +318,41 @@ public class vistaGestionProductos extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_nuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nuevoActionPerformed
-        
-        
-        
+
         txt_codigo.setText("");
         txt_descripcion.setText("");
         txt_precio.setText("");
         spinner_stock.setValue(0);
-        
-        
+
+
     }//GEN-LAST:event_btn_nuevoActionPerformed
 
     private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
-        
+
         modeloTabla.setRowCount(0);
-        
-        int codigo = Integer.parseInt(txt_codigo.getText());
-        String descripcion = txt_descripcion.getText();
-        double precio = Double.parseDouble(txt_precio.getText());
-        String rubro = (String) combo_rubro.getSelectedItem();
-        int stock = (int) spinner_stock.getValue();
-        
-        Producto nuevoProducto = new Producto(codigo, descripcion, precio, rubro, stock);
-        vistaMenuPrincipal.listaProductos.getListaProductos().add(nuevoProducto);
-        
-        JOptionPane.showMessageDialog(this, "Se agrego el nuevo producto correctamente");
-        
-        for(Producto p: vistaMenuPrincipal.listaProductos.getListaProductos()){
-            
-            modeloTabla.addRow(new Object[] {
-                p.getCodigo(),
-                p.getDescripcion(),
-                p.getPrecio(),
-                p.getRubro(),
-                p.getStock()
-            });
-            
-            
+
+        try {
+
+            int codigo = Integer.parseInt(txt_codigo.getText());
+            String descripcion = txt_descripcion.getText();
+            double precio = Double.parseDouble(txt_precio.getText());
+            String rubro = (String) combo_rubro.getSelectedItem();
+            int stock = (int) spinner_stock.getValue();
+
+            Producto nuevoProducto = new Producto(codigo, descripcion, precio, rubro, stock);
+            vistaMenuPrincipal.listaProductos.getListaProductos().add(nuevoProducto);
+
+            JOptionPane.showMessageDialog(this, "Se agrego el nuevo producto correctamente");
+
+            cargarFilas();
+
+        } catch (NumberFormatException e) {
+
+            JOptionPane.showMessageDialog(this, "Error en la carga de datos");
+
         }
-        
-        
+
+
     }//GEN-LAST:event_btn_guardarActionPerformed
 
     private void btn_cerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cerrarActionPerformed
@@ -370,56 +360,72 @@ public class vistaGestionProductos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btn_cerrarActionPerformed
 
     private void btn_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_actualizarActionPerformed
-        
-        for(Producto p: vistaMenuPrincipal.listaProductos.getListaProductos()){
-            
-            if(txt_codigo.equals(p.getCodigo())){
-                vistaMenuPrincipal.listaProductos.getListaProductos().remove(p);
-                double precio = Double.parseDouble(txt_precio.getText());
-                int stock = (int) spinner_stock.getValue();
-                Producto productoActu = new Producto(p.getCodigo() ,p.getDescripcion(), precio, p.getRubro(), stock);
-                vistaMenuPrincipal.listaProductos.getListaProductos().add(productoActu);
-                modeloTabla.setRowCount(0);
-                cargarFilas();
+
+        modeloTabla.setRowCount(0);
+
+        try {
+
+            for (Producto p : vistaMenuPrincipal.listaProductos.getListaProductos()) {
+
+                if (Integer.parseInt(txt_codigo.getText()) == p.getCodigo()) {
+
+                    double precio = Double.parseDouble(txt_precio.getText());
+                    int stock = (int) spinner_stock.getValue();
+                    p.setPrecio(precio);
+                    p.setStock(stock);
+                    JOptionPane.showMessageDialog(this, "Se actualizo el producto correctamente");
+                    cargarFilas();
+
+                } else {
+
+                    JOptionPane.showMessageDialog(this, "No se encontro el codigo de ese producto");
+
+                }
+
             }
-            
+
+        } catch (NumberFormatException e) {
+
+            JOptionPane.showMessageDialog(this, "Error en la carga de datos");
         }
-        
-        
+
+
     }//GEN-LAST:event_btn_actualizarActionPerformed
 
     private void tbl_tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_tablaMouseClicked
-        
+
         int filaSeleccionada = tbl_tabla.getSelectedRow();
-        if(filaSeleccionada != -1){
+        if (filaSeleccionada != -1) {
             int codigo = (Integer) tbl_tabla.getValueAt(filaSeleccionada, 0);
             String descripcion = (String) tbl_tabla.getValueAt(filaSeleccionada, 1);
             double precio = (Double) tbl_tabla.getValueAt(filaSeleccionada, 2);
             String rubro = (String) tbl_tabla.getValueAt(filaSeleccionada, 3);
             int stock = (Integer) tbl_tabla.getValueAt(filaSeleccionada, 4);
-            
+
             txt_codigo.setText(String.valueOf(codigo));
             txt_descripcion.setText(descripcion);
             txt_precio.setText(String.valueOf(precio));
             combo_rubro.setSelectedItem(rubro);
             spinner_stock.setValue(stock);
-        
+
         }
-        
-        
-        
+
+
     }//GEN-LAST:event_tbl_tablaMouseClicked
 
     private void btn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarActionPerformed
-        for(Producto p: vistaMenuPrincipal.listaProductos.getListaProductos()){
-            if(txt_codigo.equals(p.getCodigo())){
+
+        for (Producto p : vistaMenuPrincipal.listaProductos.getListaProductos()) {
+            if (Integer.parseInt(txt_codigo.getText()) == p.getCodigo()) {
                 vistaMenuPrincipal.listaProductos.getListaProductos().remove(p);
                 modeloTabla.setRowCount(0);
                 cargarFilas();
+
             }
-            
-            
+
         }
+
+
     }//GEN-LAST:event_btn_eliminarActionPerformed
 
 
