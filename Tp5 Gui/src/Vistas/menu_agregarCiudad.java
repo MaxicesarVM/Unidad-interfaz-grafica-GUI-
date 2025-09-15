@@ -45,6 +45,11 @@ public class menu_agregarCiudad extends javax.swing.JInternalFrame {
         lbl_nombreciudad.setText("Nombre Ciudad:");
 
         btn_guardarCiudad.setText("Guardar");
+        btn_guardarCiudad.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_guardarCiudadMouseClicked(evt);
+            }
+        });
         btn_guardarCiudad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_guardarCiudadActionPerformed(evt);
@@ -135,6 +140,10 @@ public class menu_agregarCiudad extends javax.swing.JInternalFrame {
     private void btn_salirCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirCiudadActionPerformed
         this.dispose();
     }//GEN-LAST:event_btn_salirCiudadActionPerformed
+
+    private void btn_guardarCiudadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_guardarCiudadMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_guardarCiudadMouseClicked
 
     
     public void llenarComboCiudad(){

@@ -45,6 +45,8 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        dpnl_menuPrincipal.setBorder(new javax.swing.border.MatteBorder(null));
+
         javax.swing.GroupLayout dpnl_menuPrincipalLayout = new javax.swing.GroupLayout(dpnl_menuPrincipal);
         dpnl_menuPrincipal.setLayout(dpnl_menuPrincipalLayout);
         dpnl_menuPrincipalLayout.setHorizontalGroup(
@@ -122,6 +124,11 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu3);
 
         jMenu4.setText("Salir");
+        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu4MouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenu4);
 
         setJMenuBar(jMenuBar1);
@@ -237,6 +244,10 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
           
           
     }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
+         System.exit(0);
+    }//GEN-LAST:event_jMenu4MouseClicked
 
     public static DirectorioTelefonico frmdirectorio = new DirectorioTelefonico();
     

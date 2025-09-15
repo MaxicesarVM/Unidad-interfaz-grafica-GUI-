@@ -81,6 +81,11 @@ public class menu_agregarCliente extends javax.swing.JInternalFrame {
         lbl_telefonoCliente.setText("Telefono:");
 
         btn_guardarCliente.setText("Guardar");
+        btn_guardarCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_guardarClienteMouseClicked(evt);
+            }
+        });
         btn_guardarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_guardarClienteActionPerformed(evt);
@@ -223,6 +228,10 @@ public class menu_agregarCliente extends javax.swing.JInternalFrame {
         
         
     }//GEN-LAST:event_btn_salirClienteActionPerformed
+
+    private void btn_guardarClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_guardarClienteMouseClicked
+       
+    }//GEN-LAST:event_btn_guardarClienteMouseClicked
 
     
     
